@@ -62,7 +62,7 @@ class Dataface_CopyTool {
 	function copy($record, $vals=array(), $force=true){
 	
 		foreach ($vals as $k=>$v){
-			if ( strpos($v,'=') === 0  ){
+			if ( is_string($v) && strpos($v,'=') === 0  ){
 				$vals[$k] = $this->evaluate($v, $k, $record);
 			}
 		}
